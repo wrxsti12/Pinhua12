@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaterialsTable extends Migration
+class CreateMaterialTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('material', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // 名稱
             $table->decimal('quantity', 8, 4); // 數量
@@ -25,12 +25,12 @@ class CreateMaterialsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migration.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('material');
     }
 }
