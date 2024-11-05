@@ -29,8 +29,24 @@ class MaterialsTableSeeder extends Seeder
             ['name' => '瓦楞紙板(A楞)', 'coe' => 1.06, 'unit' => '公斤(kg)', 'department_name' => '環境部', 'announcement_year' => 2023],
             ['name' => '瓦楞紙板(AB楞)', 'coe' => 1.3, 'unit' => '公斤(kg)', 'department_name' => '環境部', 'announcement_year' => 2023],
             ['name' => '單層瓦楞紙箱(加權平均)', 'coe' => 1.1, 'unit' => '平方公尺(m2)', 'department_name' => '環境部', 'announcement_year' => 2023],
+
+           
+
+            ['name' => '塑膠袋', 'coe' => 6.2, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Bag
+            ['name' => '塑膠瓶', 'coe' => 1.32, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Bottle
+            ['name' => '塑膠餐具', 'coe' => 5.1, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Cutlery
+            ['name' => '塑膠薄膜', 'coe' => 7.8, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '農業部', 'announcement_year' => 2023], // Plastic Film
+            ['name' => '塑膠包裝材料', 'coe' => 3.2, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Packaging Material
+            ['name' => '塑料泡沫', 'coe' => 5.5, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Foamed Plastic
+            ['name' => '塑膠吸管', 'coe' => 4.3, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Straw
+            ['name' => '塑膠外包裝袋', 'coe' => 3.5, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Outer Packaging Bag
+            ['name' => '塑膠飲料瓶', 'coe' => 1.8, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Beverage Bottle
+            ['name' => '塑膠食品包裝袋', 'coe' => 2.0, 'unit' => '公斤 CO₂e/公斤', 'department_name' => '環境部', 'announcement_year' => 2023], // Plastic Food Packaging Bag
+            
         ];
 
+        
+        
         // Insert data into the 'materials' table
         DB::table('materials')->insert($materials);
     }
