@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OberservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get(
      function () {
     return view('intro_sdgs');
 });
+
+Route::get('Oberservations' , [OberservationController::class, 'index']);
