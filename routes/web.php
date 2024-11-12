@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OberservationController;
+use App\Http\Controllers\MaterialsObservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,10 @@ use App\Http\Controllers\OberservationController;
 |
 */
 
+Route::get('Observation', [MaterialsObservationController::class, 'index']);
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,4 +28,3 @@ Route::get(
     return view('intro_sdgs');
 });
 
-Route::get('Oberservations' , [OberservationController::class, 'index']);
