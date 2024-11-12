@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Oberservation;
+use App\Models\Observation;
 use Illuminate\Http\Request;
 
-class OberservationController extends Controller
+class MaterialsObservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class OberservationController extends Controller
     public function index()
     {
         //
-        $materials = Oberservation::all();
-        return view('oberservation.index');
+        
+        return view('Observation.index');
     }
 
     /**
