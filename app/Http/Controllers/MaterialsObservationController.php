@@ -14,9 +14,8 @@ class MaterialsObservationController extends Controller
      */
     public function index()
     {
-        //
-        
-        return view('intro_sdgs');
+        $observations = Observation::all();
+        return view('observation.index' , compact('observations'));
     }
 
     /**

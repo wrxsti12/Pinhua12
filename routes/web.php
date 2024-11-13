@@ -14,7 +14,9 @@ use App\Http\Controllers\MaterialsObservationController;
 |
 */
 
-Route::get('Observation', [MaterialsObservationController::class, 'index']);
+Route::get('observations', [MaterialsObservationController::class, 'index']);
+
+
 
 
 
