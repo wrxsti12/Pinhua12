@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MaterialsObservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('Observation', [MaterialsObservationController::class, 'index']);
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get(
+    '/sgds',
+     function () {
+    return view('intro_sdgs');
+});
+
