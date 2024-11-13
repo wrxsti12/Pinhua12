@@ -13,7 +13,8 @@ class CreateMaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('Materials', function (Blueprint $table) {
+            
             $table->id();                              // 自增主鍵
             $table->string('name')->comment('物料名稱');                    // 物料名稱
             $table->decimal('coe', 10, 4)->comment('係數');              // 係數
@@ -31,6 +32,6 @@ class CreateMaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('Materials');
     }
 }

@@ -16,7 +16,7 @@ class MaterialsObservationController extends Controller
     {
         //
         
-        return ("123");
+        return view('intro_sdgs');
     }
 
     /**
