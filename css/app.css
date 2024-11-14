@@ -1,0 +1,66 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #000000; /* 保持一致性 */
+        font-weight: bold;
+        background-image: url('https://as1.ftcdn.net/v2/jpg/06/13/75/20/1000_F_613752072_d2ftnzXPjTFsDT05lz6tx4t4GV042DOJ.jpg'); /* 背景圖片 */
+        background-size: cover; /* 讓圖片覆蓋整個背景 */
+        background-position: center; /* 背景圖片居中 */
+        background-attachment: fixed; /* 背景固定，滾動時不會移動 */
+        text-align: center; /* 中央對齊內容 */
+        line-height: 1.6; /* 設置整體行高，讓文字更舒適 */
+    }
+
+    header {
+        background: rgba(92, 90, 90, 0.8); /* 背景顏色帶透明 */
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        line-height: 1.8; /* 可以適度調整行高來讓文字不那麼緊湊 */
+    }
+
+    nav {
+        margin: 20px 0;
+        line-height: 2; /* 增加導航欄的行高 */
+    }
+
+    nav a {
+        margin: 0 15px;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 2; /* 增加鏈接的行高 */
+    }
+
+    .content {
+        padding: 20px;
+        background: whitesmoke;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        line-height: 1.8; /* 增加內容的行高 */
+    }
+
+    .content h2 {
+        text-align: center;
+        color: #35424a;
+        font-weight: bold;
+        line-height: 2; /* 增加標題的行高 */
+    }
+
+    .footer {
+        background: rgb(87, 87, 87); 
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        line-height: 1.8; /* 增加頁腳的行高 */
+    }
+
+    /* 其他樣式設置略 */
+</style>

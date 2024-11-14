@@ -14,19 +14,16 @@ use App\Http\Controllers\MaterialsObservationController;
 |
 */
 
-Route::get('observations', [MaterialsObservationController::class, 'index']);
-
-
+Route::get('/observations', [MaterialsObservationController::class, 'index']);
 
 
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get(
     '/sgds',
      function () {
     return view('intro_sdgs');
 });
-
