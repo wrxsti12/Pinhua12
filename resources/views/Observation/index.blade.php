@@ -6,30 +6,31 @@
     <title>碳足跡指標資料表</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* 將背景圖片設置為外部 URL */
+        /* 頁面基本樣式 */
         body {
             font-family: 'Yu Gothic Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('https://as1.ftcdn.net/v2/jpg/06/13/75/20/1000_F_613752072_d2ftnzXPjTFsDT05lz6tx4t4GV042DOJ.jpg'); /* 使用外部圖片 URL */
-            background-size: cover; /* 讓背景圖片覆蓋整個頁面 */
-            background-position: center; /* 背景居中 */
-            background-attachment: fixed; /* 背景圖片固定，滾動時不動 */
+            background-image: url('https://as1.ftcdn.net/v2/jpg/06/13/75/20/1000_F_613752072_d2ftnzXPjTFsDT05lz6tx4t4GV042DOJ.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             margin: 0;
             padding: 20px;
         }
 
         h1 {
             text-align: center;
-            color: #ffffff; /* 設置標題為白色 */
+            color: #ffffff;
             margin-bottom: 40px;
             font-size: 2.5em;
             font-weight: bold;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
         }
 
+        /* 表格容器 */
         .table-container {
-            background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 14px;
-            padding: 10px;
+            padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
             max-width: 1200px;
@@ -40,6 +41,7 @@
             width: 100%;
             border-collapse: collapse;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
 
         th {
@@ -49,6 +51,7 @@
             font-size: 1.2em;
             font-weight: bold;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
         th, td {
@@ -68,10 +71,6 @@
         tr:hover {
             background-color: #e0e0e0;
             transform: scale(1.03);
-        }
-
-        tr {
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         footer {
@@ -95,29 +94,36 @@
         footer a:hover {
             color: #004b99;
         }
-
-        /* 高亮匹配的行 */
-        .highlight {
-            background-color: #ffeb3b !important;
-        }
-
     </style>
 </head>
 <body>
     <h1>碳足跡指標資料表</h1>
 
+
+    <footer>
+        <p>&copy; 2024 台灣碳足跡資訊平台</p>
+        <div>
+            <a href="https://sdgs.un.org/goals" target="_blank">SDGs Official Website | </a>
+            <a href="https://www.un.org/sustainabledevelopment/sustainable-consumption-production/" target="_blank">Sustainable Consumption and Production | </a>
+            <a href="https://www.undp.org/sustainable-development-goals" target="_blank">UNDP - SDGs | </a>
+        </div>
+    </footer>
+    
+    <input type="text" id="searchInput" class="form-control mb-4" placeholder="搜尋資料..." onkeyup="searchTable()">
+
     <div class="table-container">
         <table id="carbonTable">
             <thead>
                 <tr>
-                    <th>名稱</th>
-                    <th>COE</th>
-                    <th>單位</th>
-                    <th>部門名稱</th>
-                    <th>公告年份</th>
+                    <th onclick="sortTable(0)">名稱</th>
+                    <th onclick="sortTable(1)">COE</th>
+                    <th onclick="sortTable(2)">單位</th>
+                    <th onclick="sortTable(3)">部門名稱</th>
+                    <th onclick="sortTable(4)">公告年份</th>
                 </tr>
             </thead>
             <tbody>
+                <!-- 這裡是後端模板語法，可以用實際的數據替換 -->
                 @foreach ($observations as $observation)
                     <tr>
                         <td>{{ $observation->name }}</td>
@@ -131,54 +137,65 @@
         </table>
     </div>
 
-    <!-- 頁腳 -->
-    <footer>
-        <p>&copy; 2024 台灣碳足跡資訊平台</p>
-        <div>
-            <a href="https://sdgs.un.org/goals" target="_blank">SDGs Official Website</a>
-            <a href="https://www.un.org/sustainabledevelopment/sustainable-consumption-production/" target="_blank">Sustainable Consumption and Production</a>
-            <a href="https://www.undp.org/sustainable-development-goals" target="_blank">UNDP - SDGs</a>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 
     <script>
+        // 搜尋功能
         function searchTable() {
-            var input, filter, table, tr, td, i, txtValue, found;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("carbonTable");
-            tr = table.getElementsByTagName("tr");
-            found = false;
+            let input = document.getElementById("searchInput");
+            let filter = input.value.toUpperCase();
+            let table = document.getElementById("carbonTable");
+            let rows = table.getElementsByTagName("tr");
 
-            // 清除之前的高亮
-            for (let i = 1; i < tr.length; i++) {
-                tr[i].classList.remove("highlight");
-            }
+            for (let i = 1; i < rows.length; i++) { // 跳過表頭
+                let cells = rows[i].getElementsByTagName("td");
+                let match = false;
 
-            for (i = 1; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td");
-                let rowContainsSearchText = false;
-
-                for (let j = 0; j < td.length; j++) {
-                    if (td[j]) {
-                        txtValue = td[j].textContent || td[j].innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            rowContainsSearchText = true;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j]) {
+                        if (cells[j].textContent.toUpperCase().indexOf(filter) > -1) {
+                            match = true;
                             break;
                         }
                     }
                 }
 
-                if (rowContainsSearchText) {
-                    tr[i].style.display = "";
-                    tr[i].classList.add("highlight");
-                    found = true;
-                } else {
-                    tr[i].style.display = "none";
+                rows[i].style.display = match ? "" : "none";  // 顯示或隱藏行
+            }
+        }
+
+        // 排序功能
+        function sortTable(n) {
+            let table = document.getElementById("carbonTable");
+            let rows = table.rows;
+            let switching = true;
+            let dir = "asc";  // 預設按升序排序
+            let switchcount = 0;
+
+            while (switching) {
+                switching = false;
+                let rowsArr = Array.from(rows).slice(1);  // 排除表頭
+
+                for (let i = 0; i < rowsArr.length - 1; i++) {
+                    let x = rowsArr[i].getElementsByTagName("TD")[n];
+                    let y = rowsArr[i + 1].getElementsByTagName("TD")[n];
+
+                    if (dir === "asc" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase() || 
+                        dir === "desc" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        rowsArr[i].parentNode.insertBefore(rowsArr[i + 1], rowsArr[i]);
+                        switching = true;
+                        switchcount++;
+                        break;
+                    }
+                }
+
+                if (switchcount === 0 && dir === "asc") {
+                    dir = "desc";
+                    switching = true;
                 }
             }
+        }
+    </script>
 
-            if (found) {
-            
+</body>
+</html>

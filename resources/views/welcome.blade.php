@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>永續發展與碳足跡</title>
+    <title>永續發展目標SDGS</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -13,7 +13,7 @@
             padding: 0;
             color: #000000; /* 保持一致性 */
             font-weight: bold;
-            background-image: url('https://as1.ftcdn.net/v2/jpg/06/13/75/20/1000_F_613752072_d2ftnzXPjTFsDT05lz6tx4t4GV042DOJ.jpg'); /* 背景圖片 */
+            background-image: url('https://imgcdn.stablediffusionweb.com/2024/3/18/6595d56f-65e1-4d29-ac5b-6693c51fc304.jpg'); /* 背景圖片 */
             background-size: cover; /* 讓圖片覆蓋整個背景 */
             background-position: center; /* 背景圖片居中 */
             background-attachment: fixed; /* 背景固定，滾動時不會移動 */
@@ -42,6 +42,16 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        .content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5); /* 白色背景，透明度設為 0.9 */
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
 
         .container {
             width: 80%;
@@ -112,7 +122,7 @@
 
 <body class="antialiased">
     <header>
-        <h1 style="color: rgb(0, 0, 0);"><br>永續發展目標SDGS</h1>
+        <h1 style="color: rgb(255, 255, 255);"><br>永續發展目標SDGS</h1>
         <p style="font-weight: bold; color: rgb(255, 251, 251);">2024.11.15</p>
         <nav>
             <a href="#about" style="font-weight:bold;">什麼是SDGS</a>
@@ -166,6 +176,15 @@
             </ul>
         </p></center>
     </div>
+
+    <footer>
+        <p>&copy; 2024 台灣碳足跡資訊平台</p>
+        <div>
+            <a href="https://sdgs.un.org/goals" target="_blank">SDGs Official Website | </a>
+            <a href="https://www.un.org/sustainabledevelopment/sustainable-consumption-production/" target="_blank">Sustainable Consumption and Production | </a>
+            <a href="https://www.undp.org/sustainable-development-goals" target="_blank">UNDP - SDGs | </a>
+        </div>
+    </footer>
 
     <div class="footer">
         <p>© 2024 永續發展與碳足跡</p>

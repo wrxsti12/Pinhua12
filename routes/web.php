@@ -14,8 +14,8 @@ use App\Http\Controllers\MaterialsObservationController;
 |
 */
 
-Route::get('/observations', [MaterialsObservationController::class, 'index']);
 
+Route::get('/observations', [MaterialsObservationController::class, 'index']);
 
 
 Route::get('/', function () {
